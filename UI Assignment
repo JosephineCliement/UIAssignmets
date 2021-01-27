@@ -93,5 +93,32 @@ Ans)
 ==================================================================================================================================================================
 4.Create an image in the web page which has the width as 300 and height as 400 and display the title as "MyImage". Create same image as a hyperlink , clicking on the image will 
   show the description about the image.
+Ans)
+page1--
+<html>
+<body>
+    <img src="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" title="MyImage" style="width: 300;height: 400">
+    
+    <a href="Ass4a.html" title="MyImage" target="_blank"><img src="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="width:300;height: 400" border=5></a>  
+    
+</body>
+</html>
+
+page2--
+
+<html>
+    
+<body style="color: blue">
+    <p>
+    10 key wallpaper trends for 2020. The latest wallpaper trends are all about bold patterns, warm colours, 
+    3D texture and natural-inspired materials like grasscloth, cork, straw and wicker wallpapers, with key trends ranging from traditional
+    florals and trompe l'oeil, to tropical botanicals and contemporary geometrics.</p>
+    
+</body>
+
+</html>
+
+
+
 5.Create a list of 3 website names and create every list item as a hyperlink.  
 ==========================================================================================================================================================================
