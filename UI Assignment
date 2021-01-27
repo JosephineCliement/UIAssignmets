@@ -46,28 +46,7 @@ Ans)
 
 2.Create a hyperlink on the web page and this link will switch to other webpage. In second page there is a link as "Back" which will display the first page.
 
-Ans)
-page1--
-<html>
-<body>
-<h1>Webpages</h1>    
-    
-    <a href="Ass2a.html">Click</a>
-    
-  
-</body>
 
-</html>
--------------------------------
-page2--
-<html>
-<body>
-<h1>Webpages</h1>    
-    
-    <a href="Ass2.html">Back</a>
-</body>
-
-</html>
 =================================================================================================================================================================
 
 3.Create a Paragraph and apply the tags on this paragraph : bold,italic,underline, Mark, strike ,superscript and subscript, emphasis,strong,big.
