@@ -121,4 +121,31 @@ page2--
 
 
 5.Create a list of 3 website names and create every list item as a hyperlink.  
+
+Ans)
+
+<html>
+<body>
+<li>
+<a href="https://www.google.com/">Click on google</a>
+
+</li>
+    
+    <li>
+<a href="https://github.com/">Click on github</a>
+
+</li>
+    
+    <li>
+<a href="https://www.youtube.com/">Click on youtube</a>
+
+</li>
+    
+    
+    
+</body>
+
+</html>
+
+=========================================================================================================================================
 ==========================================================================================================================================================================
