@@ -1,9 +1,90 @@
 1.Create a Table of 3 columns and 4 records . Headings are : Sno, Name, Photo.
 
 Ans)
+<html>
+<head><title>Assignment1</title></head>
+<body>
+<table border=2>
+    <caption>Students Record</caption>
+<tr>
+   <th>Sno</th>   
+    <th>Name</th> 
+    <th>Photo</th> 
+</tr>    
+   <tr>
+      <td>1</td>
+       <td>Rahul</td>
+       <td><img src="https://i.pinimg.com/236x/c5/3a/a6/c53aa684465bc61455fd0d21537752fb.jpg" width="100" height="100" ></td>
+    </tr>
+    
+     <tr>
+      <td>2</td>
+       <td>Neha</td>
+       <td><img src="https://mgt.sjp.ac.lk/com/wp-content/uploads/2016/01/Vilani-photo-Passport-Size.jpg" width="100" height="100"></td>
+    </tr>
+    
+    
+     <tr>
+      <td>3</td>
+       <td>Priya</td>
+       <td><img src="https://adeyl.com/iteach/sites/default/files/uploads/student_images/PASSPORT%20SIZE%20PHOTO%20NAFISA.jpg" width="100" height="100"></td>
+    </tr>
+    
+     <tr>
+      <td>4</td>
+       <td>Jiya</td>
+       <td><img src="https://lh3.googleusercontent.com/proxy/FNwJznHI7NIHUn1NZ_Wdg-dsSCygcFung8eBj-VCilZW8nPJfBeev1hjJt0dDs9t5oIVoBcYI2B7ANpMYGAymhEmc7f9JScIKZVnB1zaAYgWbSK4JMqypqgzoVsQ3exz" width="100" height="100"></td>
+    </tr>
+</table>    
+    
+</body>
+
+
+</html>
+
+==================================================================================================================================================================
 
 2.Create a hyperlink on the web page and this link will switch to other webpage. In second page there is a link as "Back" which will display the first page.
+
+Ans)
+page1--
+<html>
+<body>
+<h1>Webpages</h1>    
+    
+    <a href="Ass2a.html">Click</a>
+    
+  
+</body>
+
+</html>
+-------------------------------
+page2--
+<html>
+<body>
+<h1>Webpages</h1>    
+    
+    <a href="Ass2.html">Back</a>
+</body>
+
+</html>
+=================================================================================================================================================================
+
 3.Create a Paragraph and apply the tags on this paragraph : bold,italic,underline, Mark, strike ,superscript and subscript, emphasis,strong,big.
+Ans)
+<html>
+<head>
+    <title>My Page</title>
+</head>
+    <body>
+    <p>A <b>paragraph</b> is a series of <i>related sentences developing a central idea, called the topic.
+    </i><u>Try to think about paragraphs </u>in terms of X<sup>3</sup> -Y<sub>2</sub>thematic unity: a<em>paragraph is a
+    sentence or a group</em> of sentences that supports one central, unified idea. Paragraphs add one <strike>idea at a time to your broader argument.
+    </strike> All in all, a strong and coherent <strong>paragraph starts and ends</strong> itself, and so there's no need to count<big>paragraphs when the argument</big>
+    is clear and <mark>directed to the comapany</mark></p>
+    </body>
+</html>
+==================================================================================================================================================================
 4.Create an image in the web page which has the width as 300 and height as 400 and display the title as "MyImage". Create same image as a hyperlink , clicking on the image will 
   show the description about the image.
 5.Create a list of 3 website names and create every list item as a hyperlink.  
