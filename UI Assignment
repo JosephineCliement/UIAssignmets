@@ -251,6 +251,38 @@ home page
        =============================================================================================================================================
 
 7 Create a LoginPage in which background color of textbox should be skyblue. Placeholder should be applied and password length must be atleast 8 characters.
+Ans)
+<html>
+<head>
+    
+    </head>
+<body>
+
+  <form>
+      
+<b>
+
+<label>ENTER NAME<input type="text" style="background-color:skyblue"></label><br>
+<br>
+
+ 
+
+<label >ENTER PASSWORD <input type="password" style="background-color:skyblue" placeholder="write your password here" maxlength="8"></label><br>
+<br>
+
+ 
+
+<input type="submit" value="SUBMIT"><input type="reset" value="CLEAR">
+
+ 
+
+</b>
+ 
+</form>  
+    
+</body>
+</html>
+===========================================================================================================================================================================
 8 Make a page where create a selection box of cities and a textarea where the information about city is to be entered. Once click on submit button the data is to be 
   stored in the database table as City along with description.
 9 Make an ordered list in reversed manner.
