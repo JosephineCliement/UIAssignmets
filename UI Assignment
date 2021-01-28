@@ -148,4 +148,116 @@ Ans)
 </html>
 
 =========================================================================================================================================
+
+6.Create a HomePage where a unorderd list is created in which the list items are the hyperlinks . On clicking a hyperlink the respective page should open.
+Ans)
+pg1--
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<jsp:include page="header.jsp"></jsp:include>
+
+<pre>
+
+ftghijkk nhjkk nhhkk
+ffggyyhh nnnhjkk 
+
+</pre>
+<jsp:include page="footer.jsp"></jsp:include>
+</body>
+</html>
+------------------------------------------------------------------------
+pg2--
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<jsp:include page="header.jsp"></jsp:include>
+
+<img alt="flower" src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Pink_flower_small.JPG "
+height="200";width="100">
+<jsp:include page="footer.jsp"></jsp:include>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+header--
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="style1.css">
+
+</head>
+<body>
+<header>
+<p>
+THIS IS THE HEADER.JSP
+</p>
+</header>
+
+</body>
+</html>
+---------------------------------------
+footer
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<footer>
+<p style="text=align: center;">
+created@Jan 2021
+
+</p>
+
+</footer>
+</body>
+</html>
+
+--------
+home page
+
+
+    header
+        {
+            background-color: aquamarine;
+        }
+    
+        
+         footer
+        {
+            background-color: blue;
+        }
+       =============================================================================================================================================
+
+7 Create a LoginPage in which background color of textbox should be skyblue. Placeholder should be applied and password length must be atleast 8 characters.
+8 Make a page where create a selection box of cities and a textarea where the information about city is to be entered. Once click on submit button the data is to be 
+  stored in the database table as City along with description.
+9 Make an ordered list in reversed manner.
+10 Make a Page which includes contents of a text file in the middle of the page. Create two such pages and link them together using hyperlinks. Add some header and footer
+   in both pages where header background color should be pink and some text is displayed as heading. Footer will display the todays date in (dd-mm-yyyy) in red color in
+   center of the page.
+11 Make a form which accepts name and date of birth of a person and stores it in the database.Use date type to take date of birth.
+
+
 ==========================================================================================================================================================================
