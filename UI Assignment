@@ -254,6 +254,21 @@ home page
 8 Make a page where create a selection box of cities and a textarea where the information about city is to be entered. Once click on submit button the data is to be 
   stored in the database table as City along with description.
 9 Make an ordered list in reversed manner.
+
+Ans)
+<html>
+<body>
+<h1>students data</h1>
+<ol reversed>
+   <li>saloni</li>
+   <li>mohini</li>
+   <li>josephine</li>
+   <li>nimesh</li>
+   
+</ol>
+</body>
+</html>
+ ===============================================================================================================================================================
 10 Make a Page which includes contents of a text file in the middle of the page. Create two such pages and link them together using hyperlinks. Add some header and footer
    in both pages where header background color should be pink and some text is displayed as heading. Footer will display the todays date in (dd-mm-yyyy) in red color in
    center of the page.
