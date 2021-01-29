@@ -380,5 +380,54 @@ page2
 ===========================================================================================================================================================
 11 Make a form which accepts name and date of birth of a person and stores it in the database.Use date type to take date of birth.
 
+12 Create 3 input text boxes and a submit button. Apply the background color for all text boxes as pink using class selector and change the font color of the submit button
+    using the id selector.
+    
+ Ans)
+ 
+ <html>
+<head>
+    
+<style>
+    
+    .c1
+    {
+        background-color: pink;
+        
+    }
+    
+    #id1
+    {
+          color: red;
+    }
+    
+</style> 
+</head>
+<body>
+    
+<form>
+      
 
+
+Enter Name<input type="text" class="c1"><br>
+
+Enter Age<input type="number" class="c1"><br>
+
+Enter Roll no<input type="number" class="c1"><br>
+    
+<input type="submit" value="SUBMIT" id="id1"><br>
+
+ 
+
+
+ 
+</form>  
+    
+</body>
+
+</html>
+
+=========================================================================================================================================================================
+ 
+13 Create a group selector to set the padding (25px) of a division and a paragraph text.
 ==========================================================================================================================================================================
