@@ -72,10 +72,6 @@ page2
 
 </html>
 ====================================================================================================================================================================
-
-
-=================================================================================================================================================================
-
 3.Create a Paragraph and apply the tags on this paragraph : bold,italic,underline, Mark, strike ,superscript and subscript, emphasis,strong,big.
 Ans)
 <html>
@@ -557,6 +553,7 @@ Ans)
 </html>
 ==============================================================================================================================================================
 17 Assign firstname & lastname and print the full name in the alert box.
+======================================================================================================================================================================
 18 Display the image with the border 5px , Brown color and image should be displayed in the right of the page along with the Paragraph .Set the image width and heigth
    to 150px and 150px.
    
@@ -590,8 +587,35 @@ Ans)
 ============================================================================================================================================================================
 19 Create a JSP Home Page with a Menu bar in it. Create 3 web pages and make a menubar for these links as a vertical menu bar. When clicked on any link , the respective
    webpage should be displayed and all web pages should be linked to each other.
+   ===============================================================================================================================================================
 20 Create a form with 2 fields and set the Autofocus property to the first field.
+===================================================================================================================================================================
 21 Create a Hyperlink and apply the linkcolor accordingly : 
    Activelink : yellow
    visitedLink: Green
+  Ans)
+  <html>
+<head>
+<style>
+ a:active
+        
+        {
+            color: yellow;
+        }
+    
+      a:visited
+    
+        {
+          color: green;
+        }
+    
+</style>    
+    
+</head>
+
+<body>
+<a href="page10.html">Click</a>
+    
+</body>
+</html>
 ==========================================================================================================================================================================
