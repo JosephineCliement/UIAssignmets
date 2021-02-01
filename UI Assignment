@@ -589,6 +589,27 @@ Ans)
    webpage should be displayed and all web pages should be linked to each other.
    ===============================================================================================================================================================
 20 Create a form with 2 fields and set the Autofocus property to the first field.
+
+Ans)
+<html>
+<head>
+  <style>
+    
+    
+    </style>
+            
+</head>
+<body>
+   <form>
+  
+    First Name<input autofocus type="text"> <br>    
+    Last Name<input type="text">   
+ 
+       <input type="submit" value="Submit">
+   </form> 
+</body>
+       
+</html>
 ===================================================================================================================================================================
 21 Create a Hyperlink and apply the linkcolor accordingly : 
    Activelink : yellow
