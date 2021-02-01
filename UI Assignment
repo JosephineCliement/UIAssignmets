@@ -453,4 +453,7 @@ Ans)
 </body>
 </html>
 =========================================================================================================================================================================
+14 Create a division and set the left & top margin to 20px and 30px and also set the background color to green and padding to 50px.
+15 Make a table with collapse border and color of border is Blue and alignment of text should be bottom right. Background color of the heading should be pink . Font size
+   of text written inside table body is 20px.
 ==========================================================================================================================================================================
