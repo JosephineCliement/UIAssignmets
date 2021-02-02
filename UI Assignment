@@ -686,6 +686,38 @@ Ans)
 </html>
 ==========================================================================================================================================================================
 24 Make a function expression which returns the area of circle where PI should be defined as constant.
+Ans0
+<html>
+<head>
+    
+    
+</head>
+<body>
+<script>
+    
+ 
+    // function expression
+    
+     
+       const PI=3.14;
+        var radius=5;
+        var Area=PI*5*5;
+    
+    var myfunction=function()
+    {
+        
+        document.write("Area of Circle : "+Area);
+ 
+        
+    }
+    
+    
+    myfunction();
+</script>    
+    
+</body>
+</html>
+=======================================================================================================================================================================
 25 Make an integer array of 5 numbers in a function and print the average of array.
 26 Create an array of 5 names and print the last two names on creating subarray. Add a name in the 2nd index of the array and print array in reverse order.
 Ans)
