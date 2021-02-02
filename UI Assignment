@@ -688,3 +688,44 @@ Ans)
 24 Make a function expression which returns the area of circle where PI should be defined as constant.
 25 Make an integer array of 5 numbers in a function and print the average of array.
 26 Create an array of 5 names and print the last two names on creating subarray. Add a name in the 2nd index of the array and print array in reverse order.
+Ans)
+ <html>
+<head>
+     
+</head>
+<body>
+<script>
+ var Name=new Array("Rahul","Neha","Tina","Megha");
+    
+        document.write("<ol>");
+     document.write("<li>"+Name[0]+"</li>");
+      document.write("<li>"+Name[1]+"</li>");
+      document.write("<li>"+Name[2]+"</li>");
+      document.write("<li>"+Name[3]+"</li>");
+        document.write("</ol>");
+    
+     var subarray=Name.slice(-2)
+    document.write("<br>"); 
+     document.write(subarray); 
+    
+   
+    
+      Name.splice(1,0,"Roma");
+    
+     
+        document.write("<ol>");
+        document.write("<li>"+Name[0]+"</li>");
+        document.write("<li>"+Name[1]+"</li>");
+        document.write("<li>"+Name[2]+"</li>");
+        document.write("<li>"+Name[3]+"</li>");
+        document.write("</ol>");
+    
+    
+    
+    document.write("<br>");
+    document.write(Name.reverse());
+</script>     
+     
+</body>
+</html>
+=================================================================================================================================================================
