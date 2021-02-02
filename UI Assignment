@@ -664,6 +664,27 @@ Ans)
 ==========================================================================================================================================================================
 22 Create a Javascript file which is included in HTML Page.In this file Assign Name , age and City of a person and display these values as a heading in Red color.
 23 Create a Javascript function which accepts a number and returns the cube of the number and print the cube.
+Ans)
+<html>
+<head>
+
+</head>
+<body>
+ 
+<script>
+    function fun(num)
+    {
+            document.write("Cube : "+(num*num*num));   
+
+    }
+ 
+    
+    fun(5);
+</script> 
+  
+</body>
+</html>
+==========================================================================================================================================================================
 24 Make a function expression which returns the area of circle where PI should be defined as constant.
 25 Make an integer array of 5 numbers in a function and print the average of array.
 26 Create an array of 5 names and print the last two names on creating subarray. Add a name in the 2nd index of the array and print array in reverse order.
