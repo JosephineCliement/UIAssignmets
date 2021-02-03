@@ -863,6 +863,29 @@ Ans)
 </html>
 =================================================================================================================================================================
 27 Make an Object as person which has firstname and lastname and print the Full name in capital.
+Ans)
+<html>
+
+<body>
+<script>
+
+   
+      var person=
+      {
+          "firstname":"Rakesh",
+          "lastname":"Sharma",
+      }
+     
+     
+     document.write(person.firstname.toUpperCase()+" "+person.lastname.toUpperCase());
+    
+      
+          
+</script>    
+</body>
+
+</html>
+===========================================================================================================================================================================
 28 Create an array of 5 cities and print the city names in reverse order.
 Ans)
 <html>
