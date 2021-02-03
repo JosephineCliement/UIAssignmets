@@ -700,12 +700,12 @@ Ans0
     
      
        const PI=3.14;
-        var radius=5;
-        var Area=PI*5*5;
-    
+       
     var myfunction=function()
     {
-        
+         var radius=5;
+        var Area=PI*5*5;
+    
         document.write("Area of Circle : "+Area);
  
         
