@@ -786,6 +786,40 @@ Ans0
 </html>
 =======================================================================================================================================================================
 25 Make an integer array of 5 numbers in a function and print the average of array.
+Ans)
+<html>
+<head>
+    
+</head>
+<body>
+<script>
+ 
+
+ 
+   var num=[1,2,3,4,5];
+    
+    
+    
+      
+    var myfunction=function()
+    {
+          var avg=("Average : "+(num[0]+num[1]+num[2]+num[3]+num[4])/num.length)
+             
+            document.write(avg);
+   
+        
+    }
+    
+   
+    
+    
+    myfunction();
+    
+</script>    
+ 
+</body>
+</html>
+====================================================================================================================================================================
 26 Create an array of 5 names and print the last two names on creating subarray. Add a name in the 2nd index of the array and print array in reverse order.
 Ans)
  <html>
