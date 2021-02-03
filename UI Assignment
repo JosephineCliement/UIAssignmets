@@ -914,5 +914,32 @@ Ans)
 29 Take two numbers as input in the dialogbox and calculate sum and print it.
 30 Create a confirm box on giving some message.If User clicks Ok button , then background color of the body should be green, If user clicks on cancel button then 
     background color should be red.
-
+Ans)
+<html>
+    <head>
+    </head>
+    <body>
+   
+        <h1 id="id1" style="background-color: green"></h1>
+       
+        <h1 id="id2" style="background-color: red"></h1>
+        <script>
+            var st=confirm("Are you confirm ?");
+           
+                    
+            if(st)
+                {
+                    var message="Welcome to my website" ;
+                    document.getElementById("id1").innerHTML=message;
+                }
+            else
+                {
+                    var message="Please try again !";
+                    document.getElementById("id2").innerHTML=message;
+                   
+                }
+        </script>
+    </body>
+</html>
+=============================================================================================================================================================================
  
