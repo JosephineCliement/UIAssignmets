@@ -830,3 +830,27 @@ Ans)
 =================================================================================================================================================================
 27 Make an Object as person which has firstname and lastname and print the Full name in capital.
 28 Create an array of 5 cities and print the city names in reverse order.
+Ans)
+<html>
+<head>
+    
+    
+</head>
+<body>
+<script>
+        var city=["Delhi","Goa","Pune","Bombay","Hyderabad"] 
+        
+   
+    
+    
+   for(var i of city.reverse())
+        {
+             document.write("<h4>"+i+"</h4>");
+        } 
+    
+    
+</script>    
+    
+</body>
+</html>
+===========================================================================================================================================================================
