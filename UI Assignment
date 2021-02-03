@@ -609,7 +609,74 @@ Ans)
 ============================================================================================================================================================================
 19 Create a JSP Home Page with a Menu bar in it. Create 3 web pages and make a menubar for these links as a vertical menu bar. When clicked on any link , the respective
    webpage should be displayed and all web pages should be linked to each other.
-   ===============================================================================================================================================================
+ 
+Ans)
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style>
+ 
+    h1
+        {
+            color: saddlebrown;
+            background-color: yellow;
+        }
+
+ 
+
+         h2
+        {
+            
+               background-color: pink;
+        }
+        
+         h3
+        {
+            color: purple;
+        }
+        
+      
+        
+        
+
+</style>
+</head>
+<body>
+   <b>
+       <h8>THIS IS MENU PAGE</h8>
+       </b>
+<ul>
+
+ 
+
+ <h1>
+<li><a href="page1.jsp">ClICK ON PAGE1</a></li>
+</h1>
+
+ 
+
+<h2>
+<li><a href="page2.jsp">ClICK ON PAGE2</a></li>
+</h2>
+
+ 
+
+<h3>
+<li><a href="page3.jsp">ClICK ON PAGE3</a></li>
+</h3>
+
+ 
+     
+</ul>
+</body>
+</html>
+======================================================================================================================================================================
+  
 20 Create a form with 2 fields and set the Autofocus property to the first field.
 
 Ans)
