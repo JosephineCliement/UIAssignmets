@@ -1003,30 +1003,39 @@ Ans)
     background color should be red.
 Ans)
 <html>
-    <head>
-    </head>
-    <body>
+<head>
+    
+    
+</head>
+<body id="i1">
+    <h1 id="i1">hello</h1>
+<script>
+    var c=confirm("are you confirm?");
    
-        <h1 id="id1" style="background-color: green"></h1>
-       
-        <h1 id="id2" style="background-color: red"></h1>
-        <script>
-            var st=confirm("Are you confirm ?");
+    if(c)
+        {
+          
+            var v=document.getElementById("i1");
+            v.style.backgroundColor="pink";
+            
+            document.getElementById("i1").innerHTMl="Welcome";
+        }
+    
+    else
+    {
            
-                    
-            if(st)
-                {
-                    var message="Welcome to my website" ;
-                    document.getElementById("id1").innerHTML=message;
-                }
-            else
-                {
-                    var message="Please try again !";
-                    document.getElementById("id2").innerHTML=message;
-                   
-                }
-        </script>
-    </body>
+           var v=document.getElementById("i1");
+            v.style.backgroundColor="red";
+            
+            document.getElementById("i1").innerHTMl="Hi";
+    }
+    
+    
+</script>    
+    
+</body>
+
 </html>
+
 =============================================================================================================================================================================
  
