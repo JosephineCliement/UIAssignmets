@@ -375,6 +375,93 @@ page2
 
 ===========================================================================================================================================================
 11 Make a form which accepts name and date of birth of a person and stores it in the database.Use date type to take date of birth.
+Ans)
+
+Ass11.html
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="serv2">
+<fieldset>
+<legend>DETAILS</legend>
+FULLNAME<input type="text" name="fn">
+DOB<input type="date" name="da">
+<input type="submit" value="Enter">
+</fieldset>
+</form>
+</body>
+</html>
+
+
+servlet1.java
+
+package PROJECTS;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class serv2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	response.setContentType("text/html");
+	String fnm = request.getParameter("fn");
+	
+	Date der = null;
+	
+	String d = request.getParameter("da");
+	
+	SimpleDateFormat ft1 = new SimpleDateFormat("yyyy-MM-dd");
+
+	PrintWriter pw = response.getWriter();
+	
+	try {
+		
+		der = ft1.parse(d);
+		
+		String str = ft1.format(der);
+		
+		pw.print(str);
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		
+		Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","root");
+		
+		Statement st = cn.createStatement();
+		
+		String query ="insert into detail values('"+fnm+"',date'"+d+"')";
+		
+		st.executeUpdate(query);
+		
+		pw.print("<br>INSERTED SUCCSSFULLY INTO THE TABLE........");
+	}
+    catch(Exception ea)
+    {
+    	ea.printStackTrace();
+    }
+	
+}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
 
 12 Create 3 input text boxes and a submit button. Apply the background color for all text boxes as pink using class selector and change the font color of the submit button
     using the id selector.
