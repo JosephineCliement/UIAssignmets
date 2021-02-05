@@ -281,6 +281,100 @@ Ans)
 ===========================================================================================================================================================================
 8 Make a page where create a selection box of cities and a textarea where the information about city is to be entered. Once click on submit button the data is to be 
   stored in the database table as City along with description.
+  
+  Ans)
+  
+//html3.html
+
+<html>
+<body>
+<form action="serv1">
+<table border="4">
+<tr><td>CITY</td><td> 
+<select name="cy" autofocus multiple>
+<option selected>Select city...</option>
+<option>PUNE</option>    
+<option>MUMBAI</option>
+<option>SOLAPUR</option> 
+</select></td></tr>
+<tr><td>DESCRIPTION</td></tr>
+<tr><td><textarea rows="4" cols="4" style="resize:none;width: 300px;height: 300px" name="ds" ></textarea></td></tr>
+
+<tr><td><input type="submit"></td></tr>
+
+</table>
+</form>
+</body>
+</html>
+
+//SERV.1.java
+
+
+package PROJECTS;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class serv1 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		
+		PrintWriter pw = response.getWriter();
+	    
+		String city[] = request.getParameterValues("cy");
+		
+		String desc = request.getParameter("ds");
+	    
+	    try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","root");
+			
+			Statement st = cn.createStatement();
+			
+			if(city!=null)
+			{
+                 for(int i=0;i<city.length;i++)
+                 {
+                	 
+			     String query ="insert into ser values('"+city[i]+"','"+desc+"')";
+			    
+			     int k = st.executeUpdate(query);
+                 }
+			
+			}
+			else
+			{
+				pw.print("NOT SELECTED");
+			}
+			
+			pw.print("<br>INSERTED SUCCSSFULLY........");
+		}
+	    catch(Exception ea)
+	    {
+	    	ea.printStackTrace();
+	    }
+		
+	
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+===========================================================================================================================================================
 9 Make an ordered list in reversed manner.
 
 Ans)
