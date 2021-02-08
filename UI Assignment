@@ -1093,6 +1093,21 @@ Ans)
 </html>
 ===========================================================================================================================================================================
 29 Take two numbers as input in the dialogbox and calculate sum and print it.
+Ans
+
+    
+
+<html>
+<body>
+<script>
+var num1=Number(prompt("Enter num1"));
+var num2=Number(prompt("Enter num2"));
+var sum=num1+num2;
+document.write("Sum of "+num1+" and "+num2+" is "+sum);
+</script>
+</body>
+</html>
+===========================================================================================================================================================================
 30 Create a confirm box on giving some message.If User clicks Ok button , then background color of the body should be green, If user clicks on cancel button then 
     background color should be red.
 Ans)
