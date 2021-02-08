@@ -1333,6 +1333,62 @@ Ans)
 </html>
 ===========================================================================================================================================================================
 37 Create two buttons red and green .Change the font color of the first element of 2 unordered list according to button.
+Ans)
+<html>
+    
+    <head>
+       
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
+        
+        <script>
+            $(document).ready(function(){
+           
+                  $(".rd").click(function(){
+             
+                 
+                    
+                $("ul li:first-child").css("color","red");
+            
+                 }); 
+                
+                  $(".gn").click(function(){
+             
+                 
+                    
+                $("ul li:first-child").css("color","green");
+            
+                 }); 
+                 
+                 
+             });
+             
+        </script>
+        </head>
+    
+    <body>
+    <ul>
+       <li>tina</li>
+         <li>rahul</li>
+         <li>priya</li>
+        
+        
+        </ul>
+        
+        <ul>
+       <li>neha</li>
+         <li>jyoti</li>
+         <li>saloni</li>
+        
+        
+        </ul>
+        <button class="rd">Red</button>
+          <button class="gn">Green</button>
+          
+    </body>
+</html>
+===============================================================================================================================================================
 38 Display numbers from 1 and 10 sequencially. All Odd numbers should be printed in Red color and Even numbers should be displayed in Green Color.
 39 Create an image on the web page width : 150px, height : 150px. Make a button where write a JQuery code to increse the width and height of image on Clicking the button 
    and border width should be changed to 15px and color will be Red.
