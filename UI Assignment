@@ -1280,6 +1280,52 @@ Ans
    submitted and display the username in the servlet.
 34 Create a JSON data which contains book information for three books. Access all the details of every book like bookid,booktitle,bookprice.
 35 Create a Javascript object which has a property as StudentName,StudentSkills (Array) . Convert this object to JSON.
+Ans)
+ 
+
+
+<html>
+
+
+<head>
+
+
+</head>
+
+
+<body>
+    <h2 id="i1"> </h2>
+
+
+
+<script>
+
+    var student = {name : "Rahul",
+
+
+                   skills :["Efficient","Drawing","leadreship","Dancer","Painter"] 
+
+
+                  };
+
+
+
+
+    var jsonstud = JSON.stringify(student);
+
+ document.getElementById("i1").innerHTML=jsonstud;
+
+
+    
+
+
+</script>
+
+
+</body>
+
+
+</html>
 ==============================================================================================================================================================
 36 Create 3 buttons named as Red, Green, Blue. When clicked on any button the page background should be changed according to the button.
 Ans)
