@@ -1280,4 +1280,61 @@ Ans
    submitted and display the username in the servlet.
 34 Create a JSON data which contains book information for three books. Access all the details of every book like bookid,booktitle,bookprice.
 35 Create a Javascript object which has a property as StudentName,StudentSkills (Array) . Convert this object to JSON.
+==============================================================================================================================================================
+36 Create 3 buttons named as Red, Green, Blue. When clicked on any button the page background should be changed according to the button.
+Ans)
+<html>
+    
+    <head>
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
+        
+        <script>
+             $(document).ready(function(){
+           
+          
+                 
+                 
+                               
+                $("button.c1").click(function(){
+               $("body").css("backgroundColor","red");
+              
+                }); 
+                 
+                                  
+                $("button.c2").click(function(){
+               $("body").css("backgroundColor","blue");
+              
+                }); 
+                 
+             
+                 
+                 
+                   $("button.c3").click(function(){
+               $("body").css("backgroundColor","green");
+              
+                }); 
+                 
+                 
+                 
+             });
+             
+        </script>
+        </head>
+    
+    <body>
+    
+        <p></p>
+        <button class="c1">Red</button>
+          <button class="c2">Blue</button>
+          <button class="c3">Green</button>
+    </body>
+</html>
+===========================================================================================================================================================================
+37 Create two buttons Change the font color of the first element of 2 unordered list according to button.
+=================================================================================================================================================================================
+38 Display numbers from 1 and 10 sequencially. All Odd numbers should be printed in Red color and Even numbers should be displayed in Green Color.
+====================================================================================================================================================================
+   
    
