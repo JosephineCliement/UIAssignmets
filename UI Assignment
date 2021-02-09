@@ -1647,6 +1647,12 @@ demo(20);
    will display the volume along with the property values.
 50 Create an Array of 5 integers and display the average using for..in loop.
 51 Create a tuple which has a string , number and boolean as a first ,second and third value. Display the array elements.
+Ans)
+
+let tp:[string,number,boolean];
+
+tp=["Rahul",5,true];
+console.log(tp[0]+" "+tp[1]+" "+tp[2]);
 
 ===================================================================================================================================
 
