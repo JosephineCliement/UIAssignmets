@@ -1537,6 +1537,52 @@ Ans)
 =============================================================================================================================================================================
 41 Create a Login Form where Username and Password is to be taken in the textbox. The Login form should be hidden When click on the button and also should be displayed 
    when clicked again.
+   Ans)
+   <html>
+  
+    <head>
+        <style>
+          
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+      
+        <script>
+             $(document).ready(function(){
+               
+            $(".togglebtn").click(function(){
+             $("form").toggle();
+             
+             
+           });
+               
+                    
+             });
+                  
+        </script>
+        </head>
+  
+    <body>
+       
+        <form>
+           
+             <b>ENTER NAME<input type="text"></b>  
+             <br>
+             <br>  
+             <b>ENTER PASSWORD<input type="text"></b>         
+             <br>
+             <br>
+            </form>
+           
+      
+           <button class="togglebtn">SUBMIT</button>
+   
+      
+        <div></div>
+      
+    </body>
+</html>
+ 
 ======================================================================================================================================================================
 42 create div tag with predefined parameters : width :300px, height:300px ,backgroundcolor = red. When move the mouse over the division then height and width should be 
    increased and color should be changed and when you leave the division area the original width , height and color should be displayed.
