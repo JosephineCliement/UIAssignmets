@@ -336,7 +336,57 @@ Q.14 Create an HTML page and make an image on it. Aplly the fadeIn, fadeOut,fade
 
 Q.15 Make a Javascript function which changes the background color of the body. Make anoher function which takes a string as Input and apply all string related functions
    on the string passed.
+Ans)
+<html>
 
+<head>
+ <style>
+body
+     {
+         background-color: red;
+     }
+    
+    
+</style>   
+    
+</head>
+<body>
+    <h1>Welcome To My Websites</h1>
+
+<script>
+  function f1()
+    {
+          var headingElement= document.getElementById("body");  
+             
+        
+   }
+    
+    
+    function f2()
+    {
+        var str="hello world";
+        
+        document.write(str.toUpperCase());
+          document.write("<br>");
+          document.write(str.length);
+           document.write("<br>");
+            document.write(str.toLowerCase());
+         document.write("<br>");
+   
+         document.write(str.charAt(1));
+    }
+    
+    
+    f1();
+    f2();
+    
+    
+</script>    
+    
+    
+</body>
+</html>
+=============================================================================================================================================================================
 Q.16 Create an XML code and JSON code to store the following information about a city.
    Store 5 cities records
 
