@@ -99,6 +99,94 @@ img
 =============================================================================================================================================================================
 Q.14 Create an HTML page and make an image on it. Aplly the fadeIn, fadeOut,fadeToggle, hide, show, Toggle effect on the same image. For every effect a seperate button
    should be defined.
+ Ans)
+ <html>
+    
+    <head>
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
+        
+        <script>
+             $(document).ready(function(){
+               
+                 $(".fadeinbtn").click(function(){
+                    $("img").fadeIn(2000); 
+                     
+                     
+                 });
+                 
+                 $(".fadeoutbtn").click(function(){
+                    $("img").fadeOut(4000);
+                     
+                     
+                 });
+                 
+                  $(".fadetoggle").click(function(){
+                    $("img").fadeToggle(4000);
+                     
+                     
+                 });
+                 
+                 
+                  $(".hideme").click(function(){
+                  $("img").hide('slow');
+              
+               
+                 });
+                 
+                      
+                  $(".showme").click(function(){
+                  $("img").show();
+               
+               
+                 });
+                 
+                 $(".toggle").click(function(){
+                     
+                     $("img").toggle();
+                     
+                 })
+                 
+               
+                 
+          });
+    
+             
+        </script>
+        </head>
+    
+    <body>
+         <button class="fadeinbtn">fade in button</button>
+     
+        
+        <button class="fadeoutbtn">fade out button</button>
+     
+      
+        <button class="fadetoggle">fade toggle</button>
+        
+         <button class="hideme">Hide</button>
+     
+        <button class="showme">Show</button>
+        
+       
+           <button class="toggle">toggle</button>
+        
+        
+        
+       <img src="image3.gif" height="300px" width="300px">
+        
+       
+        
+        
+      
+           
+        
+       
+        
+    </body>
+</html>
+==================================================================================================================================================================================
 
 Q.15 Make a Javascript function which changes the background color of the body. Make anoher function which takes a string as Input and apply all string related functions
    on the string passed.
