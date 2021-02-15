@@ -1278,7 +1278,119 @@ Ans
 ================================================================================================================================================
 33 Create a form to accept password and username .3 text boxes for Username, Password and Retype Password. If Both passwords are matched then only form should be 
    submitted and display the username in the servlet.
+   Ans)
+   
+   
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="ass_ser33">
+USERNAME <input type="text" name="nm">
+PASSWORD <input type="password" name="pass">
+RETYPE-PASSWORD <input type="password" name="pas">
+<input type="submit" value="Go">
+</form>
+</body>
+</html>
+
+//servlet - 33
+
+package PROJECTS;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ass_ser33 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	PrintWriter pw = response.getWriter();
+	
+	String us = request.getParameter("nm");
+	
+	String pa = request.getParameter("pass");
+	
+	String p  = request.getParameter("pas");
+	
+	if(us.equals("jose@123"))
+	{
+		if(pa.contentEquals("passjose@123"))
+		{
+			if(pa.contentEquals(p))
+			{
+				pw.print("WELCOME "+us);
+			}
+			else
+			{
+				pw.print("PASSWORD DOESNT MATCH,PLEASE RETYPE IT");
+			}
+		}
+		else
+		{
+			pw.print("PASSWORD IS INCORRECT");
+		}	
+	}
+	else
+	{
+		pw.print("USERNAME IS INVALID");
+	}	
+}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}
+================================================================================================================================================================================
 34 Create a JSON data which contains book information for three books. Access all the details of every book like bookid,booktitle,bookprice.
+Ans)
+<html>
+<body>
+    <hr>
+    <h2 id="i1"></h2><br>
+    <h2 id="i2"></h2><br>
+    <h2 id="i3"></h2><br>
+    <hr>
+    <h2 id="i4"></h2><br>
+    <h2 id="i5"></h2><br>
+    <h2 id="i6"></h2><br>
+    <hr>
+    <h2 id="i7"></h2><br>
+    <h2 id="i8"></h2><br>
+    <h2 id="i9"></h2><br>
+    <hr>
+    
+<script>
+    var jso = {"books": [{"bookid":102,"booktitle":"Fault in our stars","bookprice":1200},{"bookid":133,"booktitle":"Harry potter : Goblet of Fire","bookprice":1850},{"bookid":252,"booktitle":"Revolution 2020","bookprice":1405}]}
+
+    document.getElementById("i1").innerHTML=jso.books[0].bookid;
+    document.getElementById("i2").innerHTML=jso.books[0].booktitle;
+    document.getElementById("i3").innerHTML=jso.books[0].bookprice;
+    
+    document.getElementById("i4").innerHTML=jso.books[1].bookid;
+    document.getElementById("i5").innerHTML=jso.books[1].booktitle;
+    document.getElementById("i6").innerHTML=jso.books[1].bookprice;
+    
+    document.getElementById("i7").innerHTML=jso.books[2].bookid;
+    document.getElementById("i8").innerHTML=jso.books[2].booktitle;
+    document.getElementById("i9").innerHTML=jso.books[2].bookprice;
+        
+    /* document.write(jso.books[0].bookid);
+          document.write(jso.books[0].booktitle);
+          document.write(jso.books[0].bookprice);*/
+
+</script>   
+</body>
+</html>
+============================================================================================================================================================================
 35 Create a Javascript object which has a property as StudentName,StudentSkills (Array) . Convert this object to JSON.
 Ans)
  
@@ -1436,6 +1548,72 @@ Ans)
 </html>
 ===============================================================================================================================================================
 38 Display numbers from 1 and 10 sequencially. All Odd numbers should be printed in Red color and Even numbers should be displayed in Green Color.
+Ans)
+
+
+<html>
+<head>
+<style>
+    #s1
+    {
+    color: green;
+    }
+    
+    #s2
+    {
+    color: red;
+    }
+</style>   
+</head>
+<body>
+   <script>
+   for(var i=1;i<=10;i++)
+       {
+         document.write("<table border='2'");
+         
+         if(i%2==0)
+             {
+         document.write("<tr id='s1'><td>"+i+"</td></tr>");  
+             }
+         else
+               {
+         document.write("<tr id='s2'><td>"+i+"</td></tr>");  
+               } 
+         document.write("</table>");
+       }
+    
+   </script> 
+    <table style="border-style: solid"></table>
+</body>
+</html>
+
+
+OR
+<html>
+<head>  
+</head>
+<body>
+   <script>
+   for(var i=1;i<=10;i++)
+       {
+         document.write("<table border='2'");
+         
+         if(i%2==0)
+             {
+         document.write("<tr><td style=color:green>"+i+"</td></tr>");  
+             }
+         else
+               {
+         document.write("<tr><td style=color:red>"+i+"</td></tr>");  
+               } 
+         document.write("</table>");
+       }
+    
+   </script> 
+    <table style="border-style: solid"></table>
+</body>
+</html>
+==============================================================================================================================================================================
 39 Create an image on the web page width : 150px, height : 150px. Make a button where write a JQuery code to increse the width and height of image on Clicking the button 
    and border width should be changed to 15px and color will be Red.
   Ans)
@@ -1722,9 +1900,42 @@ var fn1= (x)=>console.log("Square : "+(x*x));
 fn1(5);
 ==========================================================================================================================================================================
 46 Make an anonymous function which accepts a number and calculates the factorial of the number and print it.
+Ans)
+
+var f1 = function(num:number)
+{
+    var res = 1;
+
+    for(var i=1;i<=num;i++)
+    {
+        res *= i;
+    }
+    console.log(res);
+}
+
+f1(4);
+=========================================================================================================================================================================
 47 Make a function which accepts two arguments as first name and last name, If lastname is not passed then default lastname should be displayed with firstname.
+Ans)
+
+function func(ft:string,lt?:string,ls="SHARMA")
+{
+    if(lt!=null)
+    {
+      console.log(ft+" "+lt);
+    }
+    else
+    {
+        console.log(ft+" "+ls);
+    }
+}
+
+func("ROHIT","SHARMA");
+=============================================================================================================================================================================
 48 Make a function with optional parameter. This function accepts only one parameter.
 Ans)
+
+
 // optional parameter
 function demo(n1) {
     console.log("With one Parameter ..."+n1);
@@ -1733,7 +1944,48 @@ demo(20);
 =====================================================================================================================================================================
 49 Create a class Box. Create 3 properties as length,breadth and height of the box. Create a function which calculates the the volume of the box . A function display()
    will display the volume along with the property values.
+   Ans)
+   
+class box
+{
+    length : number;
+    breadth : number;
+    height : number;
+    volume  : number;
+
+    constructor(l:number,b:number,h:number)
+    {
+        this.length = l;
+        this.breadth = b;
+        this.height = h;
+        this.volume = l*b*h;
+    }
+
+    display()
+    {
+        console.log("IF THE LENGTH, BREADTH, AND HEIGHT IS : "+this.length+" "+this.breadth+" "+this.height);
+        console.log("THEN VOLUME IS : "+this.volume);
+    }
+}
+
+var b1 = new box(10,20,30);
+b1.display();
+============================================================================================================================================================================
 50 Create an Array of 5 integers and display the average using for..in loop.
+Ans)
+var aray : number[];
+aray = [15,25,35,45,55];
+
+var sum = 0;
+
+for(var t in aray)
+{
+    sum+=aray[t];
+}
+
+var avg = sum / aray.length;
+console.log("AVERAGE OF 5 INTEGER VALUES ARE : "+avg);
+===============================================================================================================================================================================
 51 Create a tuple which has a string , number and boolean as a first ,second and third value. Display the array elements.
 Ans)
 
@@ -1746,11 +1998,247 @@ console.log(tp[0]+" "+tp[1]+" "+tp[2]);
 
    52 Create two textboxes as name and age of a person in a component as a child of Root component.Create a button as submit. Once clicked on this button , some handler
     should be called which will display the name and age in the alert box.
+    Ans)
+    
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-head52',
+  templateUrl: './head52.component.html',
+  styleUrls: ['./head52.component.css']
+})
+export class Head52Component implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  name:string;
+  age:number;
+
+  getdetails()
+  {
+    alert("NAME : "+this.name+" "+"AGE : "+this.age);
+  }
+}
+
+
+
+<h1>ASSIGNMENT : 52</h1>
+<br>
+<hr>
+
+NAME : <input [(ngModel)]="name"><br>
+AGE :<input [(ngModel)]="age"><br>
+<button (click)="getdetails()">SUBMIT</button>
+
+//app.component.html
+
+<h1>ASSIGN : 52</h1>
+<hr>
+<app-head52> </app-head52>
+<br><br>
+<hr>
+=============================================================================================================================================================================
 53 Create two components A and B which are the child of Root. Component A shows the text box with a button. Component B displays an unordered list of item.
+Ans)
+
+//a.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-a',
+  templateUrl: './a.component.html',
+  styleUrls: ['./a.component.css']
+})
+export class AComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+    
+    textin:string;
+
+    getdet()
+    {
+      alert(this.textin);
+    }
+}
+
+//a.component.html
+
+<p>A : COMPONENT</p>
+<input [(ngModel)]="textin"><br>
+<button (click)="getdet()">CLICK HERE</button>;
+
+//b.component.html
+
+<p>B : COMPONENT</p>
+<ul style="list-style-type: symbols();">
+<li>FIRST</li>
+<li>SECOND</li>
+<li>THIRD</li>
+<li>FOURTH</li>
+</ul><hr>
+
+//app.component.html
+
+<h1>ROOT COMPONENT</h1>
+<hr>>
+<app-a></app-a>
+<br><hr>
+<app-b></app-b>
+==========================================================================================================================================================================
 54 Create a Component which has 3 variables as rollno, name and Pass/Fail status(boolean). Assign  default values to these variables and print the values in the view
     as a table format.
+  Ans)
+  
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-head54',
+  templateUrl: './head54.component.html',
+  styleUrls: ['./head54.component.css']
+})
+export class Head54Component implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  rollno:number=23;
+  name:string="ABHISHEK";
+  pass:boolean=true;
+}
+
+//head54.component.html
+
+<h2>ASSIGN : 54</h2>
+
+<br><hr>
+<table border= 2>
+<tr><th>NAME</th><th>ROLLNO</th><th>PASS</th></tr>
+<tr><td>{{name}}</td><td>{{rollno}}</td><td>{{pass}}</td></tr>
+</table>
+<br><br>
+
+
+//app.component.html
+
+<h2>ROOT COMPONENT</h2>
+<br><hr>
+<app-head54></app-head54>
+<br><hr>
+================================================================================================================================================================================
 55 Accept two nos in a component from the text box. Make single button "Calculate". When button is pressed then Addition,Subtraction,Multiplication and division
    should be displayed in the view.
+   Ans)
+   
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-head55b',
+  templateUrl: './head55b.component.html',
+  styleUrls: ['./head55b.component.css']
+})
+export class Head55bComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  num1:number;
+  num2:number;
+
+  add:number;
+  sub:number;
+  pro:number;
+  div:number;
+
+  getcal()
+  {
+    this.add= Number(this.num1)+Number(this.num2);
+    this.sub= this.num1-this.num2;
+    this.pro= this.num1*this.num2;
+    this.div= this.num1/this.num2;
+  }
+}
+
+
+//head55.component.html
+
+<h2>ASSIGNMENT : 55</h2>
+
+<input [(ngModel)]="num1"><br>
+<input [(ngModel)]="num2"><br>
+<button (click)="getcal()">CALCULATE</button>
+<h2>{{add}}</h2>
+<h2>{{sub}}</h2>
+<h2>{{pro}}</h2>
+<h2>{{div}}</h2>
+<hr>
+//app.component.html
+
+<h2>ROOT COMPONENT</h2><hr>
+<app-head55></app-head55>
+<br>
+<hr>
+
+=============================================================================================================================================================================
 56 Create a textbox and a button in the component. Enter any string . If the string length is more than 5 characters Then a message should be displayed on the view
     as "String is valid"
+ Ans)
+ 
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-head56',
+  templateUrl: './head56.component.html',
+  styleUrls: ['./head56.component.css']
+})
+export class Head56Component implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  str:string;
+  str2:string;
+
+  checkleng()
+  {
+    var st = this.str;
+    if(st.length > 5)
+    {
+      // document.write("STRING IS VALID");
+      this.str2="STRING IS VALID";
+    }
+    else
+    {
+      this.str2=" ";
+    }
+  }
+
+}
+
+
+//head56.component.html
+
+<h2>ASSIGNMENT : 56</h2>
+
+<input [(ngModel)]="str"><br>
+<button (click)="checkleng()">CHECK</button>
+<h2>{{str2}}</h2>
+
+//app.component.html
+
+<h2>ROOT COMPONENT</h2>
+<br><hr>
+<app-head56></app-head56>
+<br><hr>
    =======================================================================================================================================================================
