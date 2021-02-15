@@ -34,7 +34,69 @@ Q.12 Create a service which stores name,email and age of 5 students in the array
    when button is clicked , all records from the service should be displayed in the Parent component.
 
 Q.13 Write a JQuery script which changes the default dimensions(width,height) of an image and background color to blue. Image should be in the center of the web Page.
+Ans)
+<html>
+    
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+ <style>
+        
+img
+     {
+       
+         width: 200px;
+         height: 200px;
+         background-position: center;
+         
+     }
+        
+</style>
+
+        
+    </head>
+  
+    <body>
+        
+        
+        <h1>Hello World</h1>
+      <img src="image1.jfif">
+       
+        <script>
+        
+             $(document).ready(function()
+             {
+                     
+                  $(".c1").click(function(){
+                      
+                  $("body").css("backgroundColor","blue")
+                      
+               
+                    $("img").animate(
+                        { 
+                            
+                            width:"+=140px",
+                            height:"+=140px",
+                            
+                            
+             
+                      
+                      
+           
+           });
+                     
+               
+             });     
+                 
+                 
+             });
+            
+                
+        </script>
+        <button class="c1">Click</button>
+    </body>
+</html>
+=============================================================================================================================================================================
 Q.14 Create an HTML page and make an image on it. Aplly the fadeIn, fadeOut,fadeToggle, hide, show, Toggle effect on the same image. For every effect a seperate button
    should be defined.
 
