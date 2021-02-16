@@ -241,7 +241,106 @@ Q.6 Create a procedure in the PLSQL which deletes a record from the database tab
 
 Q.7 Make two servlets and write the configuration details of database driver in the web.xml file. Both servlets get the same information from web.xml file .One of the
    servlet is adding information of the employee in database and second servlet is displaying all information from the database. Information can be about any Product.
+Ans)
 
+     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="assi7">
+
+PRODUCT ID<input type="number" name="proid">
+
+PRODUCT NAME<input type="text" name="pronm">
+
+PRODUCT PRICE<input type="text" name="proct">
+
+<input type="submit" value="ENTER">
+
+</form>
+</body>
+</html>
+================================================================================
+
+  assi_7.java
+  
+  package Pacakage1;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+/**
+ * Servlet implementation class assi_7
+ */
+public class assi_7 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public assi_7() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html");
+		
+		int ID = Integer.parseInt(request.getParameter("proid"));
+		
+		String NM = request.getParameter("pronm");
+		
+		String CY = request.getParameter("proct");
+		
+		try 
+		{
+	       Class.forName("oracle.jdbc.driver.OracleDriver");
+	       
+	       Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","root");
+	       
+	       PreparedStatement pmt = cn.prepareStatement("insert into assi7 values(?,?,?)");
+	       
+	       pmt.setInt(1,ID);
+	       pmt.setString(2,NM);
+	       pmt.setString(3,CY);
+	       
+	       int i = pmt.executeUpdate();
+	       
+	       System.out.println("RECORD INSERTED");			
+		}
+		catch(Exception ea)
+		{
+			ea.printStackTrace();
+		}
+		
+		response.sendRedirect("assi_7");
+		}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+===================================================================================================================================================
 
 Q.8 Create a table in the database which stores the records of 5 books like bookId, BookTitle, Author,Price.Make a servlet which access all the details of the books
    from database and display on the web page created dynamically.
