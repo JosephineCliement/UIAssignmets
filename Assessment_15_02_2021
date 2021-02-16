@@ -441,13 +441,228 @@ public class assi8 extends HttpServlet {
 Q.9 Create a Class Customer where custId,Cname,Ccity should be declared as memebers . Define getter & setter method in this class which sets the values for customer.
    Create a servlet and a JSP Page. In Jsp page make a form which takes custId, Cname and Ccity from user and these details should be submitted into the Customer 
    class and through this class all data should be saved into the database. 
+Ans)
 
+ANS. assi9.jsp
+
+     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="assi_9" method="get">
+
+<fieldset>
+
+<legend>CUSTOMER DETAILS</legend>
+
+CUSTOMER ID<input type="number" name="cusid">
+
+CUSTOMER NAME<input type="text" name="cusnm">
+
+CUSTOMER CITY<input type="text" name="cuscity">
+
+<input type="submit" value="SUBMIT">
+
+</fieldset>
+
+</body>
+</html>
+====================================================
+
+   assi_9.java
+   
+   package Pacakage1;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sun.org.apache.bcel.internal.Const;
+
+/**
+ * Servlet implementation class assi_9
+ */
+public class assi_9 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public assi_9() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		PrintWriter pw = response.getWriter();
+		
+		int id = Integer.parseInt(request.getParameter("cusid"));
+		String nm = request.getParameter("cusnm");
+		String cy = request.getParameter("cuscity");
+			
+		Cust cd = new Cust();
+		
+		cd.setCusID(id);
+		cd.setcNAME(nm);
+		cd.setcCITY(cy);
+		
+		cd.sub();
+			
+		}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+======================================================================================================================================================
 Q.10 Create 4 text boxes and a submit button in Angular View. Take firstname,lastname,email and age as an input. When clicked on the submit button All entered details 
    should be displayed in the same page. Use Two way binding.
 
+Ans)
+ANS. assi10.component.html
+
+     <h1>ASSIGNMENT 10</h1>
+
+FIRSTNAME <input [(ngModel)]="firstname"><br>
+
+LASTNAME<input [(ngModel)]="lastname"><br>
+
+EMAIL <input [(ngModel)]="email"><br>
+
+AGE <input [(ngModel)]="age"><br>
+
+<button (click)="getdetails()">SUBMIT</button>
+
+<h2>{{fn}}<br>
+
+{{ln}}<br>
+{{em}}<br>
+{{ag}}</h2>
+==============================================================
+
+   assi10.component.ts
+   
+   import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-assi10',
+  templateUrl: './assi10.component.html',
+  styleUrls: ['./assi10.component.sass']
+})
+export class Assi10Component implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  firstname:string;
+  lastname:string;
+  email:string;
+  age:number;
+
+  fn:string;
+  ln:string;
+  em:string;
+  ag:number;
+
+  getdetails()
+  {
+     this.fn = this.firstname;
+     this.ln = this.lastname;
+     this.em = this.email;
+     this.ag = this.age;
+  }
+}
+===============================================================================================
 Q.11 Create two components Parent and child.In child component, create an array of 4 employee records as name,email,age,city . Make a button in the child view .Once 
    clicked on the button, All records from the  the child should be displayed in the Parent view. Use child to Parent data transfer concept.
 
+Ans)
+
+ANS. child.component.html
+
+     h1>CHILD COMPONENT</h1>
+
+<button (click)="getarr()">GO</button>
+=========================================
+
+    child.component.ts
+    
+    import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  templateUrl: './child.component.html',
+  styleUrls: ['./child.component.sass']
+})
+export class ChildComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  arr:any[];
+
+  @Output() eve = new EventEmitter<any>();
+  
+  getarr()
+  {
+  this.arr = ["VISHAL","vishalmmunde7@gmail.com",7,"PUNE"]; 
+
+  this.eve.emit(this.arr[0]+" "+this.arr[1]+" "+this.arr[2]+" "+this.arr[3]);
+  }
+}
+=================================================
+     parent.component.html
+     
+     <h1>PARENT COMPONENT</h1>
+
+<app-child2 (eve)="getarray($event)"></app-child2>
+<h2>{{arr}}</h2>
+===================================================
+
+    parent.component.ts
+    
+    import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  templateUrl: './parent.component.html',
+  styleUrls: ['./parent.component.sass']
+})
+export class ParentComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  arr:any;
+
+  getarray(mess:any)
+  {
+    this.arr = mess;
+  }
+  
+}
+==========================================================================================
 Q.12 Create a service which stores name,email and age of 5 students in the array of objects. Make 2 components Parent & child. Create a button in the child component
    when button is clicked , all records from the service should be displayed in the Parent component.
 
