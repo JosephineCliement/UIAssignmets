@@ -344,7 +344,99 @@ public class assi_7 extends HttpServlet {
 
 Q.8 Create a table in the database which stores the records of 5 books like bookId, BookTitle, Author,Price.Make a servlet which access all the details of the books
    from database and display on the web page created dynamically.
+Ans)
+table ----
+     create table books(bid number(10),btitle varchar2(30),author varchar2(30),price number(30));
 
+insert all
+
+into books(bid,btitle,author,price) values(101, 'HOW TO BE FAMOUS','CAITLIN MORAN',20000)
+into books(bid,btitle,author,price) values(102, 'LIE OF PI','YANN MARTEL',1500)
+into books(bid,btitle,author,price) values(103, 'THE LORD OF THE RINGS','J.R.R.TOLKIEN',3000)
+into books(bid,btitle,author,price) values(104, 'THE HOBBIT', 'J.R.R.TOLKIEN', 2500)
+into books(bid,btitle,author,price) values(105, 'ULYSSES', 'JAMES JOYCE', 4000)
+
+select * from dual;
+
+select * from books;
+
+---------------------------------
+
+    assi8.java
+    
+    package Pacakage1;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+/**
+ * Servlet implementation class assi8
+ */
+public class assi8 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public assi8() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet1(HttpServletRequest request, HttpServletResponse response)
+	 */	
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			PrintWriter pw = response.getWriter();
+			response.setContentType("text/html");
+
+			try 
+			{
+		       Class.forName("oracle.jdbc.driver.OracleDriver");
+		       
+		       Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","jyotimunde");
+		       
+		       Statement smt = cn.createStatement();
+		       
+		       String query = "select bid,btitle,author,price from books";
+		       
+		       ResultSet rs = smt.executeQuery(query);
+		       
+		       while(rs.next())
+		       {
+		    	   pw.print("BOOK ID : "+rs.getInt(1)+"<br>BOOK NAME : "+rs.getString(2)+"<br>BOOK AUTHOR : "+rs.getString(3)+"<br>BOOK PRICE : "+rs.getInt(4));
+		       }
+		       
+		       pw.print("SUCCESSFULLY DISPLAYED");	
+		       
+		       rs.close();
+		       
+		       smt.close();
+		       
+		       cn.close();
+			}
+			catch(Exception ea)
+			{
+				ea.printStackTrace();
+			}
+			
+			}	
+		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+===================================================================================================================================================================
 
 Q.9 Create a Class Customer where custId,Cname,Ccity should be declared as memebers . Define getter & setter method in this class which sets the values for customer.
    Create a servlet and a JSP Page. In Jsp page make a form which takes custId, Cname and Ccity from user and these details should be submitted into the Customer 
