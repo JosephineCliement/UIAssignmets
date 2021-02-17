@@ -665,7 +665,125 @@ export class ParentComponent implements OnInit {
 ==========================================================================================
 Q.12 Create a service which stores name,email and age of 5 students in the array of objects. Make 2 components Parent & child. Create a button in the child component
    when button is clicked , all records from the service should be displayed in the Parent component.
+Ans)
 
+ANS. MY SERVICE
+
+     import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MyserviceService {
+
+  constructor() { }
+
+  arr1:any[] = ["VISHAL","vishal@gmail.com",19];
+  arr2:any[] = ["ARJUN","arjun@gmail.com",19];
+  arr3:any[] = ["SOHAM","soham@gmail.com",12];
+  arr4:any[] = ["OM","om@gmail.com",15];
+  arr5:any[] = ["PRIYA","priya@gmail.com",16];
+
+  getarray1()
+  {
+      return this.arr1[0]+" "+this.arr1[1]+" "+this.arr1[2];
+  }
+
+  getarray2()
+  {
+      return this.arr2[0]+" "+this.arr2[1]+" "+this.arr2[2];
+  }
+  
+  getarray3()
+  {
+      return this.arr3[0]+" "+this.arr3[1]+" "+this.arr3[2];
+  }
+  
+  getarray4()
+  {
+      return this.arr4[0]+" "+this.arr4[1]+" "+this.arr4[2];
+  }
+  
+  getarray5()
+  {
+      return this.arr5[0]+" "+this.arr5[1]+" "+this.arr5[2];
+  }
+}
+====================================================================
+
+     child1.component.html
+     
+     <h1>CHILD1 PAGE</h1>
+
+<button (click)="getarr()">GO</button>
+=======================================
+
+    child1.component.ts
+    
+    import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-child1',
+  templateUrl: './child1.component.html',
+  styleUrls: ['./child1.component.sass']
+})
+export class Child1Component implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  @Output() event = new EventEmitter<string>();
+  
+  getarr()
+  {
+    this.event.emit();
+  }
+  
+}
+===============================================================
+
+   parent1.component.html
+   
+   <h1>PARENT1 PAGE</h1>
+
+<app-child3 (event)="getarrays($event)"></app-child3>
+
+<h2>{{a1}}</h2>
+<h2>{{a2}}</h2>
+<h2>{{a3}}</h2>
+<h2>{{a4}}</h2>
+<h2>{{a5}}</h2>
+============================================================
+
+   parent1.component.ts
+   
+   import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-parent1',
+  templateUrl: './parent1.component.html',
+  styleUrls: ['./parent1.component.css']
+})
+export class Parent1Component implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  getarrays(fun:any)
+  {
+    this.a1 = this.ms.getarray1();
+    this.a2 = this.ms.getarray2();
+    this.a3 = this.ms.getarray3();
+    this.a4 = this.ms.getarray4();
+    this.a5 = this.ms.getarray5();
+  }
+
+}
+===============================================================================================================================================================================
 Q.13 Write a JQuery script which changes the default dimensions(width,height) of an image and background color to blue. Image should be in the center of the web Page.
 Ans)
 <html>
@@ -881,3 +999,84 @@ Q.16 Create an XML code and JSON code to store the following information about a
 
    Cities 
          city--> name,population,area   
+Ans)
+
+xml.file
+
+     <?xml version="1.0" encoding="UTF-8"?>
+
+<cities>
+
+<city>
+<name>PUNE</name>
+<population>40000000</population>
+<area>500</area>  </city>
+
+<city>
+<name>MUMBAI</name>
+<population>1.84 crores</population>
+<area>500</area>  </city>
+
+<city>
+<name>BENGLORE</name>
+<population>8300000</population>
+<area>320</area>  </city>
+
+<city>
+<name>PATNA</name>
+<population>2000000</population>
+<area>401</area>  </city>
+
+<city>
+<name>BEED</name>
+<population>2600000</population>
+<area>200</area>  </city>
+</cities>
+===============================================================
+
+   AS16.html
+   
+   <html>
+<head>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+</head>
+
+
+<body>
+<script>
+    var json = {city : [{name:"PUNE",
+                        population:40000000,
+                        area:500},
+                       {name:"SATARA",
+                        population:12100000,
+                        area:400},
+                       {name:"NAGPUR",
+                        population:97700000,
+                        area:500},
+                       {name:"MUMBAI",
+                        population:23200000,
+                        area:328},
+                       {name:"SOLAPUR",
+                        population:401230000,
+                        area:350}]};
+    
+    document.write("<table border=3>");
+    document.write("<center>")
+    document.write("<caption><h2><u>CITIES</u></h2></caption>");
+    document.write("<tr><td><b>NAME</b></td><td><b>POPULATION</b></td><td><b>AREA</b></td></tr>");
+    
+    for(var val=0;val<json.city.length;val++)
+        {
+            
+        document.write("<tr><td>"+json.city[val].name+"</td><td>"+json.city[val].population+"</td><td>"+json.city[val].area+"</td></tr>");
+    
+        }
+    document.write("</center>")
+    document.write("</table>")
+</script>    
+</body>
+</html>
+================================================================================================================================================================================
