@@ -3,3 +3,184 @@
 2. Create a class Student and make a mapping file to map this class. In Student class, Take studentRollno,name,age from user. Sno will be id by default. 
    Table should be created by hibernate and the records in the table should be updated.
 3. Make a class Account which has fields like accno,name & acctype. Acoount class will be Entity class. Take data from user and the table will be created automatically.
+Ans)
+Account class-
+package org.servlets;
+
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="Account")
+public class Account {
+	
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name ="accno")
+	private int accno;
+	
+	@Column(name ="accname")
+	private String accname;
+	
+	@Column(name ="acctype")
+	private String acctype;
+	
+	public int getAccno() {
+		return accno;
+	}
+	public void setAccno(int accno) {
+		this.accno = accno;
+	}
+	public String getAccname() {
+		return accname;
+	}
+	public void setAccname(String accname) {
+		this.accname = accname;
+	}
+	public String getAcctype() {
+		return acctype;
+	}
+	public void setAcctype(String acctype) {
+		this.acctype = acctype;
+	}
+	
+	
+}
+-------------------------------------------------------------------------------------
+AccServlet--
+package org.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Servlet implementation class AccServlet
+ */
+@WebServlet("/AccServlet")
+public class AccServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AccServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		PrintWriter out=response.getWriter();
+				
+				response.setContentType("text/html");
+				
+			int accno=Integer.parseInt(request.getParameter("no"));
+				
+				String accname=request.getParameter("nm");
+				
+				String acctype=request.getParameter("ty");
+				
+				
+
+				SessionFactory sf=new Configuration().configure().addAnnotatedClass(Account.class).buildSessionFactory();
+					
+
+					Session s=sf.openSession();
+					
+					
+				
+					s.beginTransaction();
+					
+					
+				
+					Account a=new Account();
+			
+			a.setAccno(accno);
+			a.setAccname(accname);
+			a.setAcctype(acctype);
+				
+					s.save(a);
+					
+					s.getTransaction().commit();
+					sf.close();
+				
+					out.print("<h4>Record saved...</h4>");
+			}
+
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------
+form.jsp--
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="AccServlet" method="get">
+Account No <input type="number" name="no"><br>
+ Account Name <input type="text" name="nm"><br>
+Account Type <input type="text" name="ty"><br>
+<input type="submit" value="Submit"><br>
+</form>
+</body>
+</html>
+-------------------------------------------------------------------------------------------------------------------------------------
+cfg file
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+ 
+    <property name="hbm2ddl.auto">create</property> 
+    
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+   
+    </session-factory>
+</hibernate-configuration>
+================================================================================================================================================================================
