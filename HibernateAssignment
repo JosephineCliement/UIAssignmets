@@ -474,6 +474,206 @@ cfg file
    seperate JSP to update the password.Once the record is saved in table then second JSP page will display the message as "Record submitted".
 5. Make a simple project in Maven using Hibernate to take the details about a Employee like EmpID,Name,Salary. Delete and Update the specific record. 
 6. Create a Maven project in hibernate to perform CRUD Operations. Create a web Application.
+===============================================================================================================================================================================
 7. Create 3 Bean classes named as SBI, IDBI, ICICI. In All classes the dependency is injected in the constructor.Dependency class is InterestRate which has one method
    getRate() which returns the rate of interest according to the bank. Display BankName, Bank Rate.
+   
+Ans)
+Bank interface
+package a7;
+
+public interface Bank {
+	public String Name();
+	public int Rate();
+	
+
+}
+--------------------------------------------------------------------------------------
+ICICI Bank--
+
+package a7;
+
+public class ICICI implements Bank {
+
+	@Override
+	public String Name() {
+		// TODO Auto-generated method stub
+		return "ICICI BANK";
+	}
+
+	@Override
+	public int Rate() {
+		// TODO Auto-generated method stub
+		return 500;
+	}
+
+	
+
+}
+---------------------------------------------------------------------------------------------
+
+IDBI Bank
+package a7;
+
+public class IDBI implements Bank{
+
+	@Override
+	public String Name() {
+		// TODO Auto-generated method stub
+		return "IDBI BANK";
+	}
+
+	@Override
+	public int Rate() {
+		// TODO Auto-generated method stub
+		return 900;
+	}
+
+	
+
+}
+---------------------------------------------------------------------------------------------------
+
+interface
+
+package a7;
+
+public interface InterestRate {
+	
+	public int getRate();
+
+}
+-------------------------------------------------------------------------------------------------------
+class
+
+package a7;
+
+public class Rate implements InterestRate {
+
+	@Override
+	public int getRate() {
+		// TODO Auto-generated method stub
+		return 600;
+	}
+
+}
+-----------------------------------------------------------------------------------------------------
+
+SBI class
+
+package a7;
+
+import org.pro1.FortuneService;
+
+public class SBI implements Bank {
+
+	
+	private InterestRate Is;
+
+	
+	
+	
+	public SBI(InterestRate is) {
+		super();
+		Is = is;
+	}
+
+	@Override
+	public String Name() {
+		// TODO Auto-generated method stub
+		return "SBI BANK";
+	}
+
+	@Override
+	public int Rate() {
+		// TODO Auto-generated method stub
+		
+		return Is.getRate();
+	}
+
+	
+	
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+testclass
+
+package a7;
+
+import org.pro.Car;
+import org.pro1.Coach;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestBannk {
+
+	public static void main(String[] args) {
+	
+				ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext3.xml");
+				
+			
+			
+				
+		
+				Bank b=context.getBean("mybank",Bank.class);
+				
+				
+				
+			System.out.println("Bank Name: "+b.Name());
+				
+		
+			
+			System.out.println("Bank Rate : "+b.Rate());
+			
+		
+			
+			
+				
+			context.close();
+		
+
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------
+applicationContext3.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+    
+ 
+       <!--   <bean id="mybank" class="a7.SBI"></bean>     --> 
+   
+ 
+    
+     <!-- Configure dependency here -->
+    <bean id="InterestRate" class="a7.Rate"></bean>
+    
+    
+      <!-- inject dependency here -->
+      
+      
+    <bean id="mybank" class="a7.SBI">
+    <constructor-arg ref="InterestRate"></constructor-arg>
+    
+    </bean>
+    
+   
+    
+     
+   
+</beans>
+==============================================================================================================================================================================
+
+
+
 
