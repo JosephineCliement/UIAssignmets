@@ -472,6 +472,232 @@ cfg file
 4. Create a hibernate project in Maven which is a Dynamic web Project and Create a mapping file for the POJO class.Two JSP pages(A,B) will be created.First Jsp will 
    accepts username,Password and stores the deails in the logintable. In the same project Create another servlet which updates the password in the table. Create a 
    seperate JSP to update the password.Once the record is saved in table then second JSP page will display the message as "Record submitted".
+   
+ Ans)
+ 
+ 
+//hibernate.cfg.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property> 
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="show_sql">true</property>
+        <mapping resource="prod1.hbm.xml"/>
+         <mapping resource="POJO.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
+
+//POJO.java
+
+package ASSIGNMENTS;
+
+public class POJO {
+
+	public int sno;
+	public int getSno() {
+		return sno;
+	}
+
+	public void setSno(int sno) {
+		this.sno = sno;
+	}
+
+	public String usnm,pswd;
+
+	public String getUsnm() {
+		return usnm;
+	}
+
+	public void setUsnm(String usnm) {
+		this.usnm = usnm;
+	}
+
+	public String getPswd() {
+		return pswd;
+	}
+
+	public void setPswd(String pswd) {
+		this.pswd = pswd;
+	}
+	
+	
+}
+//POJO.hm.xml
+
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ASSIGNMENTS.POJO" table="POJO">
+        <id name="sno" type="int">
+            <column name="SNO" />
+            <generator class="increment" />
+        </id>
+        <property name="usnm" type="java.lang.String">
+            <column name="USNM" />
+        </property>
+        <property name="pswd" type="java.lang.String">
+            <column name="PSWD" />
+        </property>
+    </class>
+</hibernate-mapping>
+
+//A.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="serv1">
+USERNAME <input type="text" name="us">
+PASSWORD <input type="password" name="pass">
+<input type="submit" value="ENTER">
+</form>
+</body>
+</html>
+
+//SERVLET - 1
+
+package ASSIGNMENTS;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class serv1 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	PrintWriter out = response.getWriter();
+	
+	String us = request.getParameter("us");
+	
+	String pa = request.getParameter("pass");
+	SessionFactory sf = new Configuration().configure().buildSessionFactory();
+	
+	Session s = sf.openSession();
+	
+	s.beginTransaction();
+	
+	POJO p = new POJO();
+	p.setSno(101);
+
+	p.setUsnm(us);
+	
+	p.setPswd(pa);
+	
+	s.save(p);
+	
+	s.getTransaction().commit();
+	
+	s.close();
+	
+	sf.close();
+	
+	out.print("TABLE CREATED AND RECORD SUCCESSFULLY INSERTED...................");
+	
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+//B.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="serv2">
+ID <input type="text" name="id">
+PASSWORD<input type="password" name="pass">
+<input type="submit" value="SUBMIT">
+</form>
+</body>
+</html>
+
+//SERVLET - 2
+
+package ASSIGNMENTS;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class serv2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		int sno = Integer.parseInt(request.getParameter("id"));		
+		
+		String pa = request.getParameter("pass");
+		
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		
+		Session s = sf.openSession();
+		
+		s.beginTransaction();
+		
+		POJO p = s.get(POJO.class, sno);
+
+		p.setPswd(pa);
+		
+		s.update(p);
+		
+		s.getTransaction().commit();
+		
+		s.close();
+		
+		sf.close();
+		
+		out.print("PASSWORD UPDATED");
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+ ========================================================================================================================================================================
 5. Make a simple project in Maven using Hibernate to take the details about a Employee like EmpID,Name,Salary. Delete and Update the specific record. 
 Ans)
 package demo1;
