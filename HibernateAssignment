@@ -1306,6 +1306,154 @@ appliction--
     <!-- Spring will Scan all component classes in the package  org.Annotation-->
      <context:component-scan base-package="ass15"></context:component-scan>
 </beans>
-
+===============================================================================================================================================================================
 16  Make a program to apply Setter injection using XML and Annotation.
+Ans)
+  Stationery-
+   package ass15;
+
+public interface Stationery {
+	
+	public String getDetails();
+	public String getyourFortune();
+}
+----------------------------------------------------------------------------------
+pen---
+
+package ass15;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+
+public class Pen implements Stationery {
+
+	public FortuneService fs;
+	
+	// Setter injection using @Autowired
+	
+	
+	@Autowired
+
+
+	public void setFs(FortuneService fs) {
+		this.fs = fs;
+	}
+	
+	
+	
+	
+	@Override
+	public String getDetails() {
+		// TODO Auto-generated method stub
+		return "Message from Pen";
+	}
+
+
+
+	@Override
+	public String getyourFortune() {
+		// TODO Auto-generated method stub
+		return fs.getFortune();
+	}
+	
+	
+
+}
+------------------------------------------------------------------------------
+scale
+
+package ass15;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Scale implements Stationery{
+
+	@Override
+	public String getDetails() {
+		// TODO Auto-generated method stub
+		return "Message from Scale";
+	}
+
+	@Override
+	public String getyourFortune() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
+-----------------------------------------------------------------------------------
+test
+
+package ass15;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestApp {
+
+	public static void main(String[] args) {
+
+		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+
+	
+		Stationery s=context.getBean("pen",Stationery.class);
+	
+
+		System.out.println(s.getDetails());
+		
+		System.out.println(s.getyourFortune());
+		
+		context.close();
+		
+	}
+
+}
+----------------------------------------------------------------------------------------------------------
+fortuneservice--
+package ass15;
+
+public interface FortuneService {
+	
+	public String getFortune();
+
+}
+---------------------------------------------------------------------------------------
+happyfortuneservice
+
+package ass15;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class HappyFortuneservice implements FortuneService{
+
+	@Override
+	public String getFortune() {
+		// TODO Auto-generated method stub
+		return "ts Your lucky day";
+	}
+
+}
+-------------------------------------------------------------------------------------
+appliction--
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+    
+ 
+    <!-- Spring will Scan all component classes in the package  org.Annotation-->
+     <context:component-scan base-package="ass15"></context:component-scan>
+</beans>
+
+=============================================================================================================================================================================
 
