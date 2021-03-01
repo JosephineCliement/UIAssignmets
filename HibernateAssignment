@@ -1238,7 +1238,7 @@ public class Product1 implements Details
 		try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		
-		Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","jyotimunde");
+		Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","root");
 		
 		PreparedStatement pmt = cn.prepareStatement("insert into ASSI_8 values(?,?,?)");
 		
@@ -1441,7 +1441,7 @@ public class Store implements Interface
 	
 	{
 		
-		return "VishalMunde@Gmail.com";
+		return "josephine@Gmail.com";
 	}
 	
 	@Override
@@ -1449,7 +1449,7 @@ public class Store implements Interface
 	
 	{
 		
-		return "VISHAL123";
+		return "jose123";
 	}
 }
 =============================================================================================
