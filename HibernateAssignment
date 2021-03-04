@@ -2509,6 +2509,154 @@ pom file
 ===========================================================================================================================================================================
 23. Create a simple hibernate project without Maven to define a POJO class Users (using annotation). Take userid,username,city from user and print all details on the
     Console.
+Ans)
+package package2;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "User1234")
+public class User1 {
+	
+	@Id
+	@Column(name ="Uid")
+	public int userid;
+	
+	@Column(name ="Uname")
+	public String username;
+	
+	@Column(name ="Ucity")
+	public String usercity;
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getUsercity() {
+		return usercity;
+	}
+
+	public void setUsercity(String usercity) {
+		this.usercity = usercity;
+	}
+
+	public User1() {
+		super();
+	}
+	
+	
+		
+
+}
+--------------------------------------------------------------------------------------------------
+
+package package2;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+
+
+public class TestApp {
+
+	public static void main(String[] args) {
+     SessionFactory sf=new Configuration().configure().addAnnotatedClass(User1.class).buildSessionFactory();
+		
+		Session s=sf.openSession();
+		
+		s.beginTransaction();
+		
+		
+		
+		User1 u1=new User1();
+	
+	
+		u1.setUserid(101);
+		System.out.println("USERID : 101");
+		
+		u1.setUsername("Tina");
+		System.out.println("USERNAME : Tina");
+		
+		u1.setUsercity("Delhi");
+		System.out.println("USERCITY : DELHI");
+		
+
+		s.save(u1);
+		
+		s.getTransaction().commit();
+		s.close();
+		sf.close();
+
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    <property name="hbm2ddl.auto">create</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <!-- 
+        <mapping resource="Users.hbm.xml"/>
+         -->
+    </session-factory>
+</hibernate-configuration>
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+package package2;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Emp {
+
+	@Id
+	private int id;
+	private String name;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Emp() {
+		super();
+	}
+	
+	
+}
+==================================================================================================================================================================
+
 24. Create a simple hibernate project with Maven to define a POJO class Users (using annotation). Take userid,username,city from user and print all details on the
     Console.
 25. Create a dynamic hibernate project without Maven to define a POJO class Users (without annotation). Take userid,username,city from user and print all details on the
