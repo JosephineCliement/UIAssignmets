@@ -2337,6 +2337,104 @@ application
 ===========================================================================================================================================================================
 14. Make a Spring MVC Project in Maven, Create a registration page where customer Id, firstname, lastname and age is to be taken in the registration form and save data 
     in the database .After submitting data , display the message "Registration Successful".
+
+    
+ANS.  Controller1.java
+
+     package Assi14;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+public class Controller1 
+
+{
+
+	@RequestMapping("/control1")
+	public String form1()
+	{
+		return "form1";
+	}
+	
+	@RequestMapping("/Assi14")
+	public String status(@RequestParam("cid") int id,@RequestParam("fnm") String fm,@RequestParam("lnm") String lm,@RequestParam("ag") int age)
+	{
+		try {
+			Class.forName("oracle.jbdc.driver.OracleDriver");
+			
+			Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe");
+			
+			Statement smt = cn.createStatement();
+			
+			String query = "insert into TABLE14 values("+id+",'"+fm+"','"+lm+"',"+age+")";
+			
+			smt.executeUpdate(query);
+			
+			smt.close();
+			
+			cn.close();
+			
+			System.out.println("DONE !!!");
+			
+		}
+		catch(Exception ea)
+		{
+			ea.printStackTrace();
+			System.out.println("INVALID FORMAT");
+		}
+		
+		return "status";
+	
+}
+	
+}
+=============================================================================================================================================================
+
+     Assi14.jsp
+     
+     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="Controller1">
+<table border=3>
+<center><caption>REGISTRATION FORM</caption></center>
+<tr><td>CUSTOMER ID</td><td><input type="number" name="cid" required></td></tr>
+<tr><td>CUSTOMER FIRSTNAME </td><td><input type="text" name="fnm"></td></tr>
+<tr><td>CUSTOMER LASTNAME </td><td><input type="text" name="lnm"></td></tr>
+<tr><td>AGE</td><td><input type="number" name="ag"></td></tr>
+<tr><td><input type="submit" value="ENTER"></td></tr>
+</table>
+</form>
+</body>
+</html>
+===================================================================================================
+
+     Assi14Display.jsp
+     
+     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Registration Successfull</h1>
+</body>
+</html>
+========================================================================================================================================================================
+
 15  Make a program to apply constructor injection using XML and Annotation.
 Ans)
    Stationery-
@@ -3282,6 +3380,129 @@ public class Emp {
 
 24. Create a simple hibernate project with Maven to define a POJO class Users (using annotation). Take userid,username,city from user and print all details on the
     Console.
+
+    
+ANS.  POJO.java
+
+      package Assi24;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ASSI23")
+public class POJO 
+
+{
+
+	@Id
+	@Column(name = "UserId")
+	public int userid;
+	
+	@Column(name = "UserName")
+	public String username;
+	
+	@Column(name = "UserCity")
+	public String usercity;
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getUsercity() {
+		return usercity;
+	}
+
+	public void setUsercity(String usercity) {
+		this.usercity = usercity;
+	}
+
+	public POJO(int userid, String username, String usercity) {
+		super();
+		this.userid = userid;
+		this.username = username;
+		this.usercity = usercity;
+	}
+
+	public POJO() {
+		super();
+	}
+}
+================================================================================================================
+
+     TestMain.java
+     
+     package Assi24;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class TestMain {
+
+	public static void main(String[] args) 
+	
+	{
+	
+		SessionFactory sf=new Configuration().configure().addAnnotatedClass(POJO.class).buildSessionFactory();
+		
+		Session s=sf.openSession();
+		
+		s.beginTransaction();
+		
+		POJO p1=new POJO();
+		
+		p1.setUserid(101);
+		p1.setUsername("VISHAL");
+		p1.setUsercity("PUNE");
+		
+		s.save(p1);
+		
+		s.getTransaction().commit();
+		
+		s.close();
+		sf.close();
+		
+		System.out.println("DATA IS :"+p1.getUserid()+" "+p1.getUsername()+" "+p1.getUsercity());
+	}
+
+}
+====================================================================================================================================
+
+     hibernate.cfg.xml
+     
+     <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    <property name="hbm2ddl.auto">create</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">jyotimunde</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <mapping resource="Pojo.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
+==============================================================================================================================================================================
 25. Create a dynamic hibernate project without Maven to define a POJO class Users (without annotation). Take userid,username,city from user and print all details on the
     Console.
  Ans)
