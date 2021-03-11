@@ -171,7 +171,26 @@ Q.5 Create a Dynamic Web Project using JSTL in which make two JSP Pages .Form1.j
        displays the result according to entered number. For example ,If number entered is 5 then result will be 5 6 7 8 9.....
 
 Q.6 Write a Program to create an ArrayList of 3 numbers and find the minimum of the these numbers and display it.
-
+Ans)
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int a = 5, b = 7, c = 10;
+ 
+    if (a <= b && a <= c)
+        cout << a << " is the  minimum";
+ 
+    else if (b <= a && b <= c)
+        cout << b << " is the minimum";
+ 
+    else
+        cout << c << " is the  minimum";
+ 
+    return 0;
+}
+==========================================================================================================================================================================
 Q.7 Create a class Result which implements Runnable interface.This class has a method getMarks() which takes 5 marks as arguments and returns the percentage value.The method getMarks() should be called inside run() method.Create two Thread objects of the Result class .Set the names of these objects as "student1" and "student2". Display percentage of two students in run() method.
 
 Q.8 Create a custom Exception class named as EmailException. Throw an exception of EmailException if email length is zero.
