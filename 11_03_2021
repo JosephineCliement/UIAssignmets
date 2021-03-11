@@ -229,7 +229,7 @@ public class A14 {
 	
 	
 		System.out.println(ob.append("Hello"));
-	
+		System.out.println(ob==ob1);
 		
 		System.out.println(ob1.substring(2));
 		
