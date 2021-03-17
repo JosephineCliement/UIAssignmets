@@ -630,10 +630,7 @@ public class ass6 {
 	arr.add(10);
 	
 	System.out.println(arr);
-	int index = arr.indexOf(Collections.min(arr));
-	arr.remove(index);
 	
-	System.out.println(arr);
 	}
 
 }
